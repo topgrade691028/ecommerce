@@ -1,0 +1,175 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateProductInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+input CreateUserInput {
+  email: String!
+  first_name: String!
+  image: String!
+  isActive: Boolean!
+  isVerified: Boolean!
+  last_name: String!
+  password: String!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Dimension {
+  Depth: Float!
+  createdAt: DateTime!
+  height: Float!
+  id: String!
+  legHeight: String!
+  product: [Product!]!
+  seatHeight: String!
+  updatedAt: DateTime!
+  weight: Float!
+  width: Float!
+}
+
+type FillingMaterial {
+  createdAt: DateTime!
+  id: String!
+  materialName: String!
+  productDetails: [ProductDetails!]!
+  updatedAt: DateTime!
+}
+
+type GeneralDetail {
+  configuration: String!
+  createdAt: DateTime!
+  id: String!
+  modelNumber: String!
+  product: [Product!]!
+  salesPackage: String!
+  secondaryMaterial: String!
+  updatedAt: DateTime!
+  upholsteryColor: String!
+  upholsteryMaterial: [UpholesteryMaterial!]!
+}
+
+type ImageLinks {
+  createdAt: DateTime!
+  id: String!
+  updatedAt: DateTime!
+  uploadedBy: String!
+  url: String!
+}
+
+type Mutation {
+  createProduct(createProductInput: CreateProductInput!): Product!
+  createUser(createUserInput: CreateUserInput!): User!
+  removeProduct(id: Int!): Product!
+  removeUser(uid: String!): User!
+  updateProduct(updateProductInput: UpdateProductInput!): Product!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+}
+
+type Product {
+  addInfo: String!
+  color: String!
+  createdAt: DateTime!
+  deletedAt: DateTime
+  description: String!
+  dimension: [Dimension!]!
+  generalDetail: [GeneralDetail!]!
+  id: String!
+  imageLinks: ImageLinks
+  name: String!
+  price: Float!
+  productDetails: [ProductDetails!]!
+  sizeType: String!
+  tags: [Tags!]!
+  updatedAt: DateTime!
+  warranty: [Warranty!]!
+}
+
+type ProductDetails {
+  Adjustable: Boolean!
+  FinishType: String!
+  MaxLoadCapacity: Float!
+  OriginOfManufacture: String!
+  createdAt: DateTime!
+  fillingMaterial: [FillingMaterial!]!
+  id: String!
+  product: [Product!]!
+  updatedAt: DateTime!
+}
+
+type Query {
+  product(id: Int!): Product!
+  user(uid: String!): User!
+}
+
+type Tags {
+  createdAt: DateTime!
+  id: String!
+  name: String!
+  product: Product!
+  updatedAt: DateTime!
+}
+
+input UpdateProductInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}
+
+input UpdateUserInput {
+  email: String
+  first_name: String
+  image: String
+  isActive: Boolean
+  isVerified: Boolean
+  last_name: String
+  password: String
+  uid: String!
+}
+
+type UpholesteryMaterial {
+  createdAt: DateTime!
+  generalDetail: [GeneralDetail!]!
+  id: String!
+  materialName: String!
+  updatedAt: DateTime!
+}
+
+type User {
+  createdAt: DateTime!
+  deletedAt: DateTime
+  email: String!
+  first_name: String!
+  image: String
+  isActive: Boolean!
+  isVerified: Boolean!
+  last_name: String
+  uid: String!
+}
+
+type Warranty {
+  DomesticWarranty: String!
+  coveredInWarranty: String!
+  createdAt: DateTime!
+  id: String!
+  notCoveredInWarranty: String!
+  product: [Product!]!
+  updatedAt: DateTime!
+  warrantyServiceType: [WarrantyServiceType!]!
+  warrantySummary: String!
+}
+
+type WarrantyServiceType {
+  createdAt: DateTime!
+  id: String!
+  typeName: String!
+  updatedAt: DateTime!
+  warranty: [Warranty!]!
+}

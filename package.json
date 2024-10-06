@@ -1,0 +1,24 @@
+{
+  "name": "furnio",
+  "version": "1.0.0",
+  "description": "e-commerce for furnitures",
+  "main": "index.js",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
+  "scripts": {
+    "format": "prettier --ignore-path .prettierignore \"{backend,frontend}/**/*.{ts,tsx,js,json}\"",
+    "format:check": "npm run format -- --check",
+    "format:write": "npm run format -- --write",
+    "validate": "npm run format:write",
+    "lint": "npm run lint --workspaces",
+    "prepare": "husky"
+},
+  "author": "Abhishek",
+  "license": "ISC",
+  "devDependencies": {
+    "husky": "^9.1.6",
+    "prettier": "^3.3.3"
+  }
+}
